@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+#Eureka Specifics
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    #serviceUrl:
+     # defaultZone: http://h02cbfi12ps0068.nam.nsroot.net:8888/eureka/
