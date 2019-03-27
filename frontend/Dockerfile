@@ -1,8 +1,8 @@
 # The builder from node image
 FROM node:alpine as builder
 
-RUN apt update
-RUN apt install python2.7
+RUN apk update
+RUN apk install python2.7
 RUN ln -s /usr/bin/python2.7 /usr/bin/python
 
 WORKDIR /app
