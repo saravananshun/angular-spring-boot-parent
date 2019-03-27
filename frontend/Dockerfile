@@ -1,13 +1,17 @@
 # The builder from node image
 FROM node:alpine as builder
 
+RUN sudo apt update
+RUN sudo apt install python2.7
+RUN ln -s /usr/bin/python2.7 /usr/bin/python
+
 WORKDIR /app
 COPY package*.json /app/
 RUN npm install
 COPY ./ /app/
 
 ARG configuration=production
-RUN npm run build --output-path=dist --configuration $configuration
+RUN npm run build --output-path=dist --configuration=$configuration
 
 FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
